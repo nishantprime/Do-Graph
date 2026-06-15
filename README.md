@@ -71,6 +71,7 @@ Relationships are calculated mathematically, not just assigned.
 
 ### State Management Architecture Built with Zustand. 
 The entire graph state is held in a lightweight, centralized store, ensuring that the Command Bar, the Canvas, and the LocalStorage database remain perfectly synced without heavy prop-drilling or Context API re-renders.
+
 ---
 
 ## 📋 To Do-
