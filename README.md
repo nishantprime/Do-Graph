@@ -48,7 +48,7 @@ Your brain belongs to you.
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/nishantprime/Do-Graph.git](https://github.com/nishantprime/Do-Graph.git)
+   git clone https://github.com/nishantprime/Do-Graph.git
    ```
 
 2. Install dependencies:
