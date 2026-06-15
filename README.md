@@ -4,12 +4,11 @@ A high-performance, local-first spatial task manager and second-brain visualizer
 
 Traditional to-do lists are linear, forcing complex, interconnected thoughts into rigid vertical columns. This project replaces the linear list with a **Force-Directed Physics Graph**, allowing tasks, goals, and thoughts to organize themselves organically based on their relationships, shared context, and timelines.
 
-## ☁️ Try it Out
-**Live Demo:** [https://do-graph.pages.dev/](https://do-graph.pages.dev/)
-
 ## 🚀 Core Philosophy
 The human brain does not store information in isolated folders; it stores it in associative webs. Cosmic Synastre is designed to mimic that behavior. Simply write what you are thinking and tag it. The engine calculates the similarity between your thoughts and physically pulls related concepts together on the screen.
 
+## ☁️ Try it Out
+**Live Demo:** [https://do-graph.pages.dev/](https://do-graph.pages.dev/)
 ---
 
 ## 🧠 How to Use (The Essentials)
