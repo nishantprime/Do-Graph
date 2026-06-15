@@ -13,7 +13,7 @@ The human brain does not store information in isolated folders; it stores it in 
 A frictionless, CLI-style input system. No clicking through menus or forms.
 * **Syntax Parsing:** Create nodes instantly using prefix triggers (`!` for Goals, `/` for Tasks, `.` for Thoughts).
 * **Structural Binding:** Use `@` to tether a task to a specific parent goal.
-* **Context Tagging:** Use `#` to assign contextual metadata.
+* **Context Tagging:** Use `#` to assign contextual tags.
 * **Real-time Autocomplete:** The engine scans your existing universe and provides a navigable dropdown for quick tagging.
 * **Excel-Style Editing:** Click any node to instantly pull its raw syntax back into the command bar for rapid editing.
 
