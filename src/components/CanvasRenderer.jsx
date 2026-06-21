@@ -18,7 +18,8 @@ export default function CanvasRenderer() {
   // Interaction State (Kept in a Ref so React doesn't reboot the physics engine)
   const interaction = useRef({
     hoveredNode: null,
-    selectedNode: null
+    selectedNode: null,
+    hasCenteredOnLoad: false
   });
   const renderLoopRef = useRef(null);
 
@@ -269,6 +270,39 @@ export default function CanvasRenderer() {
     });
     d3.select(canvas).call(zoom);
 
+    
+// --- E. INITIAL LOAD CINEMATIC PAN ---
+    if (!interaction.current.hasCenteredOnLoad && rawNodes.length > 0) {
+      // 1. Find the newest node mathematically (O(N) search)
+      const latestNode = rawNodes.reduce((prev, current) => 
+        (prev.timestamp > current.timestamp) ? prev : current
+      );
+      
+      // 2. Grab the pre-calculated coordinates for that node's month
+      const targetCenter = monthCenters[latestNode.month];
+
+      if (targetCenter) {
+        // 3. The SVG/Canvas Translation Matrix 
+        // We calculate the delta between the exact middle of your monitor (width / 2) 
+        // and the target coordinates in the virtual space.
+        setTimeout(() => {
+          d3.select(canvas)
+            .transition()
+            .duration(1500) // 1.5-second easing sweep
+            .call(
+              zoom.transform,
+              d3.zoomIdentity
+                .translate(width / 2 - targetCenter.x, height / 2 - targetCenter.y)
+                .scale(1) 
+            );
+        }, 100); // 100ms buffer to allow the physics layout to initialize
+        
+        // Lock the camera so it doesn't fire again until you refresh the app
+        interaction.current.hasCenteredOnLoad = true;
+      }
+    }
+
+    
     return () => {
       simulation.stop();
       d3.select(canvas).on('.zoom', null);
