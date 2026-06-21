@@ -9,18 +9,13 @@ export const useStore = create(
 
       setSelectedNodeId: (id) => set({ selectedNodeId: id }),
 
-      addNode: (nodeData) => {
-        const newId = `${nodeData.type.charAt(0)}-${Date.now()}`;
-        set((state) => ({
-          nodes: [...state.nodes, {
-            ...nodeData,
-            id: newId,
-            timestamp: Date.now(),
-            month: new Date().toLocaleString('default', { month: 'long', year: 'numeric' })
-          }],
-          lastAddedNodeId: newId // <--- Add this tracker
-        }));
-      },
+      addNode: (nodeData) => set((state) => ({
+        nodes: [...state.nodes, {
+          ...nodeData,
+          timestamp: Date.now(),
+          month: new Date().toLocaleString('default', { month: 'long', year: 'numeric' })
+        }]
+      })),
 
       updateNode: (id, updatedData) => set((state) => ({
         nodes: state.nodes.map(n => n.id === id ? { ...n, ...updatedData } : n),
